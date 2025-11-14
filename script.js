@@ -92,8 +92,8 @@ function createXOXZPattern() {
     const patternContainer = document.createElement('div');
     patternContainer.className = 'xoxz-pattern';
     
-    // Create 5 rows of XOXZ text
-    for (let i = 0; i < 5; i++) {
+    // Create 6 rows of XOXZ text (increased from 5)
+    for (let i = 0; i < 6; i++) {
         const textElement = document.createElement('div');
         textElement.className = 'xoxz-text';
         
