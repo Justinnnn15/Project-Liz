@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages for LIZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Indie+Flower&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="messages.css">
+</head>
+<body>
+    <div class="back-icon" onclick="window.location.href='index.html#skipLoader'" title="Back to home">
+        🏠
+    </div>
+    <div id="messagesPage">
+        <h1 id="messagesTitle">Your message to LIZ</h1>
+        
+        <div id="messagesContainer">
+            <!-- Messages will be dynamically added here -->
+            <div class="add-message-card" id="addMessageCard">
+                <div class="add-circle">
+                    <span class="plus-icon">+</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding messages -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Leave a Message for LIZ</h2>
+            <input type="text" id="nicknameInput" placeholder="Your nickname..." maxlength="20">
+            <textarea id="messageInput" placeholder="Your message..." maxlength="200"></textarea>
+            <button id="submitBtn">Post Message</button>
+        </div>
+    </div>
+
+    <script type="module" src="messages.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href ="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIM JI-WON | Ultimate Bias</title>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader-wrapper">
+        <div class="loader-particles" id="particles"></div>
+        <div class="loader-content">
+            <div class="loader-logo">KIM JI-WON</div>
+            <div class="loader-question">How to spell BEAUTIFUL in 3 letters?</div>
+            <input type="text" class="loader-input" id="beautyAnswer" maxlength="3" placeholder="Type your answer...">
+            <div class="loader-hint" id="answerHint"></div>
+            <div class="loader-bar-container" id="loadingBar" style="display: none;">
+                <div class="loader-bar"></div>
+            </div>
+            <div class="loader-text" id="loadingText" style="display: none;">LOADING EXPERIENCE</div>
+        </div>
+    </div>
+    <div id="header">
+        <h1 id="welcome">MY ULTIMATE BIAS</h1>
+    </div>
+    
+    <!-- Page Indicators -->
+    <div class="page-indicators">
+        <div class="page-dot active" data-page="0"></div>
+        <div class="page-dot" data-page="1"></div>
+        <div class="page-dot" data-page="2"></div>
+        <div class="page-dot" data-page="3"></div>
+    </div>
+    
+    <div id="body">
+        <h1 id="message">A Collection Dedicated to Kim Ji-won</h1>
+        <div class="image-container">
+            <img id="wife" src="images/liz.jpeg" alt="picture of ive LIZ in WAVES CHINA">
+        </div>
+        <div class="button-container">
+            <div class="message-icon" onclick="window.location.href='messages.html'" title="Leave a message">
+                💌
+            </div>
+            <div class="button" id="creatorBtn">
+                <img src="next.png" alt="arrow" class="btn-icon">
+                CREATOR
+            </div>
+        </div>
+        
+        <!-- Profile Card -->
+        <div class="profile-card" id="profileCard">
+            <button class="profile-close" id="closeProfile">×</button>
+            <div class="card__header">
+                <div class="card__avatar">
+                    <div class="profile-avatar">👨‍💻</div>
+                </div>
+            </div>
+            <div class="card__body">
+                <h3 class="card__title">Justin</h3>
+                <p class="card__subtitle">Full Stack Developer & Designer</p>
+                
+                <div class="card__section">
+                    <h4>About</h4>
+                    <p>Passionate developer creating beautiful web experiences. Specializing in modern web technologies and creative design.</p>
+                </div>
+                
+                <div class="card__section">
+                    <h4>Skills</h4>
+                    <div class="card__tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Web Design</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                </div>
+                
+                <div class="card__section">
+                    <h4>Connect</h4>
+                    <div class="card__buttons">
+                        <a href="https://www.linkedin.com/in/justin-ian-aldevera-736ba130a/" target="_blank" rel="noopener noreferrer" class="card__btn">
+                            <img src="icons/InBug-White.png" alt="LinkedIn" class="btn-icon-small">
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/Justinnnn15" target="_blank" rel="noopener noreferrer" class="card__btn card__btn-solid">
+                            <img src="icons/github-mark-white.svg" alt="GitHub" class="btn-icon-small">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h4>scroll down to explore the visual journey</h4>
+    </div>
+    <div id="content">
+        <h2 id="title">KIM JI-WON ALBUM</h2>
+        <p id="albumSubtitle">A stunning collection of moments and memories</p>
+        <div class="gallery-container">
+            <!-- Column 1 -->
+            <div class="gallery-column" data-direction="up">
+                <img class="lizPic" src="images/liz1.jpg">
+                <img class="lizPic" src="images/liz2.jpg">
+                <img class="lizPic" src="images/liz3.jpg">
+                <img class="lizPic" src="images/liz4.jpg">
+                <img class="lizPic" src="images/liz5.jpg">
+                <img class="lizPic" src="images/liz6.jpg">
+                <img class="lizPic" src="images/lizz1.jpg">
+                <img class="lizPic" src="images/lizz2.jpg">
+            </div>
+            <!-- Column 2 -->
+            <div class="gallery-column" data-direction="down">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-11.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-16.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-19.jpg">
+                <img class="lizPic" src="images/lizz4.jpg">
+                <img class="lizPic" src="images/lizz5.jpg">
+                <img class="lizPic" src="images/lizz6.jpg">
+                <img class="lizPic" src="images/lizz7.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-22.jpg">
+            </div>
+            <!-- Column 3 -->
+            <div class="gallery-column" data-direction="up">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-25.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-28.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-30.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-34.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-37.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-40.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-42.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-44.jpg">
+            </div>
+            <!-- Column 4 -->
+            <div class="gallery-column" data-direction="down">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-47.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-49.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-52.jpg">
+                <img class="lizPic" src="images/lizB.jpg">
+                <img class="lizPic" src="images/liz.jpeg">
+                <img class="lizPic" src="images/lizz3.jpg">
+                <img class="lizPic" src="images/lizz8.jpg">
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Page - Video Gallery -->
+    <div id="videoGalleryPage">
+        <h2 id="videoGalleryTitle">KIM JI-WON IN MOTION</h2>
+        <p id="videoGallerySubtitle">Experience her captivating performances and moments</p>
+        <div id="videoGalleryGrid">
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos/1.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos/2.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos/3.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos2/5.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos2/7.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos2/8.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos2/10.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos2/11.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos2/12.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+            <div class="video-card">
+                <video class="gallery-video" muted loop playsinline preload="metadata">
+                    <source src="videos2/13.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <button class="mute-btn" aria-label="Unmute video">🔇</button>
+            </div>
+        </div>
+        <p class="video-credits">Credits to the respective owners of all video content</p>
+    </div>
+
+    <!-- Fourth Page - Solo Performance -->
+    <div id="soloPage">
+        <h2 id="soloTitle">"UNREAL" liz solo performance</h2>
+        <div id="soloContent">
+            <div id="videoContainer">
+                <video id="soloVideo" controls>
+                    <source src="solo-p/liz-video.mp4" type="video/mp4">
+                </video>
+                <p id="videoCredit">credits to the owner</p>
+            </div>
+            <div id="soloDescription">
+                <p>Dive into the captivating world of Liz as she takes center stage for a stunning solo performance during IVE's highly anticipated "SHOW WHAT I HAVE" world tour. Known for her powerful vocals and charismatic stage presence, Liz delivers an unforgettable experience, showcasing her unique artistry and versatility beyond her beloved group activities. This performance is a testament to her evolving talent and a must-see for fans eager to witness her individual brilliance.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
