@@ -27,6 +27,10 @@
     position: relative;
     z-index: 2;
     animation: contentEnter 0.8s ease-out;
+    width: 100%;
+    max-width: 90vw;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 @keyframes contentEnter {
@@ -43,14 +47,15 @@
 .loader-logo {
     font-family: "BBH Sans Bartle", sans-serif;
     font-size: 72px;
-    font-weight: bold;
+    font-weight: 100;
     color: #ff69b4;
     margin-bottom: 50px;
-    letter-spacing: 10px;
+    letter-spacing: 16px;
     text-transform: uppercase;
     position: relative;
     display: inline-block;
     text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+    white-space: nowrap;
 }
 
 .loader-logo::after {
@@ -67,12 +72,12 @@
 
 .loader-question {
     font-family: "BBH Sans Bartle", sans-serif;
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 30px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-align: center;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.6;
 }
 
@@ -113,10 +118,11 @@
     border: 2px solid rgba(255, 105, 180, 0.5);
     border-radius: 12px;
     color: #fff;
-    font-size: 32px;
+    font-size: 26px;
     text-align: center;
     font-family: "BBH Sans Bartle", sans-serif;
-    letter-spacing: 15px;
+    font-weight: 100;
+    letter-spacing: 12px;
     text-transform: uppercase;
     outline: none;
     transition: all 0.3s ease;
@@ -153,9 +159,9 @@
 
 .loader-input::placeholder {
     color: rgba(255, 255, 255, 0.3);
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 14px;
+    font-weight: 100;
 }
 
 .loader-input:focus {
@@ -343,13 +349,88 @@
     pointer-events: none;
 }
 
+/* Mobile responsiveness for loader */
 @media (max-width: 768px) {
     .loader-logo {
-        font-size: 48px;
-        letter-spacing: 4px;
+        font-size: clamp(24px, 7vw, 36px);
+        font-weight: 100;
+        letter-spacing: clamp(2px, 1.2vw, 5px);
+        margin-bottom: 30px;
+    }
+    
+    .loader-question {
+        font-size: clamp(14px, 4vw, 17px);
+        padding: 0 20px;
+        margin-bottom: 25px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+    }
+    
+    .loader-input {
+        width: min(280px, 90vw);
+        height: 50px;
+        font-size: clamp(18px, 4.5vw, 22px);
+        font-weight: 100;
+        letter-spacing: clamp(5px, 1.8vw, 9px);
+    }
+    
+    .loader-hint {
+        font-size: 16px;
+        padding: 0 20px;
     }
     
     .loader-bar-container {
         width: 80%;
+        max-width: 280px;
+    }
+    
+    .loader-text {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loader-logo {
+        font-size: clamp(20px, 6vw, 28px);
+        font-weight: 100;
+        letter-spacing: clamp(1px, 0.8vw, 3px);
+        margin-bottom: 25px;
+    }
+    
+    .loader-question {
+        font-size: clamp(12px, 3.5vw, 15px);
+        padding: 0 15px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+    }
+    
+    .loader-input {
+        width: min(240px, 85vw);
+        height: 45px;
+        font-size: clamp(16px, 4vw, 18px);
+        font-weight: 100;
+        letter-spacing: clamp(3px, 1.2vw, 6px);
+        margin-bottom: 20px;
+    }
+    
+    .loader-input::placeholder {
+        font-size: 10px;
+    }
+    
+    .loader-hint {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .loader-bar-container {
+        width: 85%;
+        max-width: 240px;
+    }
+    
+    .loader-text {
+        font-size: 10px;
+        margin-top: 15px;
     }
 }

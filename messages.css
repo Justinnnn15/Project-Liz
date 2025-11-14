@@ -61,7 +61,7 @@ body {
 
 #messagesContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
     gap: 30px;
     padding: 20px;
     animation: fadeIn 1s ease;
@@ -346,9 +346,13 @@ body {
     }
     
     #messagesContainer {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
         gap: 20px;
         padding: 10px;
+    }
+    
+    .message-card {
+        min-height: 220px;
     }
     
     .modal-content {
@@ -370,9 +374,27 @@ body {
 @media (max-width: 480px) {
     #messagesTitle {
         font-size: 2rem;
+        margin-bottom: 30px;
     }
     
     #messagesContainer {
         grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 8px;
+    }
+    
+    .message-card {
+        min-height: 200px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 25px 20px;
+    }
+    
+    .back-icon {
+        top: 15px;
+        left: 15px;
+        font-size: 2rem;
     }
 }

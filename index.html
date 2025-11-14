@@ -3,11 +3,14 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="loader.css">
     <link rel="stylesheet" href ="index.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>KIM JI-WON | Ultimate Bias</title>
 </head>
 <body>
@@ -16,8 +19,8 @@
         <div class="loader-particles" id="particles"></div>
         <div class="loader-content">
             <div class="loader-logo">KIM JI-WON</div>
-            <div class="loader-question">How to spell BEAUTIFUL in 3 letters?</div>
-            <input type="text" class="loader-input" id="beautyAnswer" maxlength="3" placeholder="Type your answer...">
+            <div class="loader-question">How to spell BEAUTIFUL<br>in 3 letters?</div>
+            <input type="text" class="loader-input" id="beautyAnswer" maxlength="3" placeholder="...">
             <div class="loader-hint" id="answerHint"></div>
             <div class="loader-bar-container" id="loadingBar" style="display: none;">
                 <div class="loader-bar"></div>
