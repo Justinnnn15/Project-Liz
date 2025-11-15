@@ -1,3 +1,16 @@
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+                console.log('Service Worker registered successfully:', registration.scope);
+            })
+            .catch((error) => {
+                console.log('Service Worker registration failed:', error);
+            });
+    });
+}
+
 let row1Position = 0;
 let row2Position = 0;
 const scrollSpeed = 0.45;
@@ -734,9 +747,12 @@ function setupPageIndicators() {
     const dots = document.querySelectorAll('.page-dot');
     
     let scrollTimeout;
+    let isScrolling = false;
     
     // Update active dot based on scroll position
     function updateActiveDot() {
+        if (isScrolling) return; // Don't update while auto-scrolling
+        
         const scrollTop = window.scrollY;
         const windowHeight = window.innerHeight;
         
@@ -746,12 +762,11 @@ function setupPageIndicators() {
         pages.forEach((page, index) => {
             if (page) {
                 const rect = page.getBoundingClientRect();
-                const pageTop = scrollTop + rect.top;
                 
                 // Calculate distance from top of viewport to page top
                 const distance = Math.abs(rect.top);
                 
-                // The page closest to the top of viewport (snapped) is active
+                // The page closest to the top of viewport is active
                 if (distance < minDistance) {
                     minDistance = distance;
                     currentPage = index;
@@ -768,11 +783,31 @@ function setupPageIndicators() {
         });
     }
     
-    // Click handler for dots
+    // Click handler for dots - scroll to exact page position
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             if (pages[index]) {
-                pages[index].scrollIntoView({ behavior: 'auto', block: 'start' });
+                isScrolling = true;
+                
+                // Update active state immediately
+                dots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+                
+                // Get the exact top position of the page element
+                const pageRect = pages[index].getBoundingClientRect();
+                const absoluteTop = window.pageYOffset + pageRect.top;
+                
+                // Scroll to exact position
+                window.scrollTo({
+                    top: absoluteTop,
+                    behavior: 'smooth'
+                });
+                
+                // Re-enable dot updates after scroll completes
+                setTimeout(() => {
+                    isScrolling = false;
+                    updateActiveDot();
+                }, 1000);
             }
         });
     });
@@ -785,6 +820,152 @@ function setupPageIndicators() {
     
     // Initial update
     updateActiveDot();
+}
+
+// Performance Monitoring
+function initPerformanceMonitoring() {
+    if ('PerformanceObserver' in window) {
+        // Monitor Largest Contentful Paint (LCP)
+        const lcpObserver = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime);
+        });
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+
+        // Monitor First Input Delay (FID)
+        const fidObserver = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            entries.forEach(entry => {
+                console.log('FID:', entry.processingStart - entry.startTime);
+            });
+        });
+        fidObserver.observe({ entryTypes: ['first-input'] });
+
+        // Monitor Cumulative Layout Shift (CLS)
+        let clsScore = 0;
+        const clsObserver = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+                if (!entry.hadRecentInput) {
+                    clsScore += entry.value;
+                    console.log('CLS:', clsScore);
+                }
+            }
+        });
+        clsObserver.observe({ entryTypes: ['layout-shift'] });
+    }
+
+    // Log performance metrics on load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            if (perfData) {
+                console.log('Performance Metrics:', {
+                    'DNS Lookup': (perfData.domainLookupEnd - perfData.domainLookupStart).toFixed(2) + 'ms',
+                    'TCP Connection': (perfData.connectEnd - perfData.connectStart).toFixed(2) + 'ms',
+                    'Request Time': (perfData.responseStart - perfData.requestStart).toFixed(2) + 'ms',
+                    'Response Time': (perfData.responseEnd - perfData.responseStart).toFixed(2) + 'ms',
+                    'DOM Processing': (perfData.domComplete - perfData.domLoading).toFixed(2) + 'ms',
+                    'Load Complete': (perfData.loadEventEnd - perfData.navigationStart).toFixed(2) + 'ms'
+                });
+            }
+        }, 0);
+    });
+}
+
+// Enhanced Video Lazy Loading with Memory Management
+function enhanceVideoLazyLoading() {
+    const videos = document.querySelectorAll('.gallery-video');
+    
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            const videoCard = video.closest('.video-card');
+            
+            if (entry.isIntersecting) {
+                // Load video when visible
+                if (video.readyState === 0 && video.querySelector('source').src) {
+                    videoCard?.classList.add('skeleton');
+                    video.load();
+                    video.addEventListener('loadedmetadata', () => {
+                        videoCard?.classList.remove('skeleton');
+                    }, { once: true });
+                }
+            } else {
+                // Unload video if very far from viewport to save memory
+                const rect = entry.boundingClientRect;
+                const viewportHeight = window.innerHeight;
+                const distanceFromViewport = Math.min(
+                    Math.abs(rect.top),
+                    Math.abs(rect.bottom - viewportHeight)
+                );
+                
+                // Unload if more than 3 viewport heights away
+                if (distanceFromViewport > viewportHeight * 3) {
+                    video.pause();
+                    video.currentTime = 0;
+                    // Don't actually remove src to avoid breaking functionality
+                    // Just pause and reset to save resources
+                }
+            }
+        });
+    }, {
+        rootMargin: '200px', // Start loading 200px before entering viewport
+        threshold: 0
+    });
+    
+    videos.forEach(video => videoObserver.observe(video));
+}
+
+// Resource Hints - Preload critical resources
+function addResourceHints() {
+    // Preload critical images for next page
+    const currentScroll = window.scrollY;
+    const pageHeight = window.innerHeight;
+    
+    // Preload images for next section
+    if (currentScroll < pageHeight) {
+        // On home page, preload album images
+        preloadImage('images/liz1.jpg');
+        preloadImage('images/liz2.jpg');
+    } else if (currentScroll < pageHeight * 2) {
+        // On album page, preload video posters
+        preloadImage('videos/posters/1.jpg', true);
+        preloadImage('videos/posters/2.jpg', true);
+    }
+}
+
+function preloadImage(src, optional = false) {
+    const link = document.createElement('link');
+    link.rel = optional ? 'prefetch' : 'preload';
+    link.as = 'image';
+    link.href = src;
+    document.head.appendChild(link);
+}
+
+// Debounce function for performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Throttle function for scroll events
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 }
 
 window.addEventListener('load', function() {
@@ -814,4 +995,12 @@ window.addEventListener('load', function() {
     setupProfileCard();
     setupPageIndicators();
     setupSoloPageVideo();
+    
+    // Initialize performance optimizations
+    initPerformanceMonitoring();
+    enhanceVideoLazyLoading();
+    addResourceHints();
+    
+    // Throttled scroll handler for resource hints
+    window.addEventListener('scroll', throttle(addResourceHints, 1000), { passive: true });
 });
