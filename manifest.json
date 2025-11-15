@@ -1,0 +1,32 @@
+{
+  "name": "KIM JI-WON | Ultimate Bias",
+  "short_name": "Liz Tribute",
+  "description": "A stunning tribute website dedicated to IVE's Liz (Kim Ji-won) featuring photo gallery, videos, and fan messages.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff69b4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/profile-pic/DP.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/profile-pic/DP.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/images/liz.jpeg",
+      "sizes": "1280x720",
+      "type": "image/jpeg"
+    }
+  ]
+}

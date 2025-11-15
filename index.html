@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="loader.css">
-    <link rel="stylesheet" href ="index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="A stunning tribute website dedicated to IVE's Liz (Kim Ji-won) featuring photo gallery, videos, and fan messages.">
+    <meta name="theme-color" content="#ff69b4">
+    <link rel="manifest" href="/manifest.json">
     <title>KIM JI-WON | Ultimate Bias</title>
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.gstatic.com">
+    
+    <!-- Preconnect to critical domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Critical CSS - Load immediately -->
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&display=swap" as="style">
+    
+    <!-- Load fonts asynchronously -->
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"></noscript>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -43,7 +61,7 @@
     <div id="body">
         <h1 id="message">A Collection Dedicated to Kim Ji-won</h1>
         <div class="image-container">
-            <img id="wife" src="images/liz.jpeg" alt="picture of ive LIZ in WAVES CHINA">
+            <img id="wife" src="images/liz.jpeg" alt="picture of ive LIZ in WAVES CHINA" loading="eager" decoding="async">
         </div>
         <div class="button-container">
             <div class="message-icon" onclick="window.location.href='messages.html'" title="Leave a message">
@@ -59,7 +77,7 @@
             <button class="profile-close" id="closeProfile">×</button>
             <div class="card__header">
                 <div class="card__avatar">
-                    <img src="profile-pic/DP.jpg" alt="Justin Profile" class="profile-avatar">
+                    <img src="profile-pic/DP.jpg" alt="Justin Profile" class="profile-avatar" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="card__body">
@@ -105,46 +123,46 @@
         <div class="gallery-container">
             <!-- Column 1 -->
             <div class="gallery-column" data-direction="up">
-                <img class="lizPic" src="images/liz1.jpg">
-                <img class="lizPic" src="images/liz2.jpg">
-                <img class="lizPic" src="images/liz3.jpg">
-                <img class="lizPic" src="images/liz4.jpg">
-                <img class="lizPic" src="images/liz5.jpg">
-                <img class="lizPic" src="images/liz6.jpg">
-                <img class="lizPic" src="images/lizz1.jpg">
-                <img class="lizPic" src="images/lizz2.jpg">
+                <img class="lizPic" src="images/liz1.jpg" loading="lazy" decoding="async" alt="Liz photo 1">
+                <img class="lizPic" src="images/liz2.jpg" loading="lazy" decoding="async" alt="Liz photo 2">
+                <img class="lizPic" src="images/liz3.jpg" loading="lazy" decoding="async" alt="Liz photo 3">
+                <img class="lizPic" src="images/liz4.jpg" loading="lazy" decoding="async" alt="Liz photo 4">
+                <img class="lizPic" src="images/liz5.jpg" loading="lazy" decoding="async" alt="Liz photo 5">
+                <img class="lizPic" src="images/liz6.jpg" loading="lazy" decoding="async" alt="Liz photo 6">
+                <img class="lizPic" src="images/lizz1.jpg" loading="lazy" decoding="async" alt="Liz photo 7">
+                <img class="lizPic" src="images/lizz2.jpg" loading="lazy" decoding="async" alt="Liz photo 8">
             </div>
             <!-- Column 2 -->
             <div class="gallery-column" data-direction="down">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-11.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-16.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-19.jpg">
-                <img class="lizPic" src="images/lizz4.jpg">
-                <img class="lizPic" src="images/lizz5.jpg">
-                <img class="lizPic" src="images/lizz6.jpg">
-                <img class="lizPic" src="images/lizz7.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-22.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-11.jpg" loading="lazy" decoding="async" alt="Liz photo 9">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-16.jpg" loading="lazy" decoding="async" alt="Liz photo 10">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-19.jpg" loading="lazy" decoding="async" alt="Liz photo 11">
+                <img class="lizPic" src="images/lizz4.jpg" loading="lazy" decoding="async" alt="Liz photo 12">
+                <img class="lizPic" src="images/lizz5.jpg" loading="lazy" decoding="async" alt="Liz photo 13">
+                <img class="lizPic" src="images/lizz6.jpg" loading="lazy" decoding="async" alt="Liz photo 14">
+                <img class="lizPic" src="images/lizz7.jpg" loading="lazy" decoding="async" alt="Liz photo 15">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-22.jpg" loading="lazy" decoding="async" alt="Liz photo 16">
             </div>
             <!-- Column 3 -->
             <div class="gallery-column" data-direction="up">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-25.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-28.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-30.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-34.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-37.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-40.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-42.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-44.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-25.jpg" loading="lazy" decoding="async" alt="Liz photo 17">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-28.jpg" loading="lazy" decoding="async" alt="Liz photo 18">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-30.jpg" loading="lazy" decoding="async" alt="Liz photo 19">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-34.jpg" loading="lazy" decoding="async" alt="Liz photo 20">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-37.jpg" loading="lazy" decoding="async" alt="Liz photo 21">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-40.jpg" loading="lazy" decoding="async" alt="Liz photo 22">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-42.jpg" loading="lazy" decoding="async" alt="Liz photo 23">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-44.jpg" loading="lazy" decoding="async" alt="Liz photo 24">
             </div>
             <!-- Column 4 -->
             <div class="gallery-column" data-direction="down">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-47.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-49.jpg">
-                <img class="lizPic" src="images2/photo_2025-11-12_19-10-52.jpg">
-                <img class="lizPic" src="images/lizB.jpg">
-                <img class="lizPic" src="images/liz.jpeg">
-                <img class="lizPic" src="images/lizz3.jpg">
-                <img class="lizPic" src="images/lizz8.jpg">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-47.jpg" loading="lazy" decoding="async" alt="Liz photo 25">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-49.jpg" loading="lazy" decoding="async" alt="Liz photo 26">
+                <img class="lizPic" src="images2/photo_2025-11-12_19-10-52.jpg" loading="lazy" decoding="async" alt="Liz photo 27">
+                <img class="lizPic" src="images/lizB.jpg" loading="lazy" decoding="async" alt="Liz photo 28">
+                <img class="lizPic" src="images/liz.jpeg" loading="lazy" decoding="async" alt="Liz photo 29">
+                <img class="lizPic" src="images/lizz3.jpg" loading="lazy" decoding="async" alt="Liz photo 30">
+                <img class="lizPic" src="images/lizz8.jpg" loading="lazy" decoding="async" alt="Liz photo 31">
             </div>
         </div>
     </div>
@@ -155,70 +173,70 @@
         <p id="videoGallerySubtitle">Experience her captivating performances and moments</p>
         <div id="videoGalleryGrid">
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos/1.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <button class="mute-btn" aria-label="Unmute video">🔇</button>
             </div>
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos/2.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <button class="mute-btn" aria-label="Unmute video">🔇</button>
             </div>
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos/3.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <button class="mute-btn" aria-label="Unmute video">🔇</button>
             </div>
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos2/5.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <button class="mute-btn" aria-label="Unmute video">🔇</button>
             </div>
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos2/7.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <button class="mute-btn" aria-label="Unmute video">🔇</button>
             </div>
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos2/8.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <button class="mute-btn" aria-label="Unmute video">🔇</button>
             </div>
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos2/10.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <button class="mute-btn" aria-label="Unmute video">🔇</button>
             </div>
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos2/11.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <button class="mute-btn" aria-label="Unmute video">🔇</button>
             </div>
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos2/12.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <button class="mute-btn" aria-label="Unmute video">🔇</button>
             </div>
             <div class="video-card">
-                <video class="gallery-video" muted loop playsinline preload="metadata">
+                <video class="gallery-video" muted loop playsinline preload="none">
                     <source src="videos2/13.mp4" type="video/mp4">
                 </video>
                 <div class="video-overlay"></div>
